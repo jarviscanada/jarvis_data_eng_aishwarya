@@ -30,7 +30,7 @@ elif [ "$1" = "stop" ]; then
   docker container stop jrvs-psql
   exit $?
 else
-  echo "Invalid Action"
+  echo "Invalid Action: Expected start,stop or create"
   exit 1
 fi
 
