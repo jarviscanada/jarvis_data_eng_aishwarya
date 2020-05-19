@@ -7,7 +7,7 @@ Cluster Monitor Agent is an internal tool that monitors the cluster resources us
 ## Architecture and Design
 1) Cluster Diagram:
 
-   ![Cluster Diagram](./assets/Cluster-Page-2.png)
+   ![Cluster Diagram](./assets/Cluster_Diagram_2.png)
    
 2) Two tables described in SQL:
    * One dedicated for storing hardware specification of the host (host_info) and which will execute only once when installed.
