@@ -37,4 +37,4 @@ insert_stmt="INSERT INTO host_usage ("timestamp",host_id,memory_free,cpu_idle, c
 
 psql -h "$psql_host" -p "$psql_port" -U $psql_user -d $db_base -c "$insert_stmt"
 
-exit 0
+exit $?
