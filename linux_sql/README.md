@@ -28,7 +28,7 @@ Following are Linux Resource Usgae Data in `host_usage` table and is tracked eve
  * disk_io - Information regarding input/output in process. Information obtained from `$(vmstat -d)`
  * disk_available - Availability of disk space in server. Information collected from `$(df -BM /)`
 
-###Scripts Description
+### Script Descriptions
   * `host_info.sh` - The script collects hardware configuration information and then insert the data to the psql instance. You can assume that hardware specifications are static so that the script is only required to execute once. 
   * `host_usgae.sh` - The script collects server usage data and then stores the data into the psql database. The script is executed in every minute using Linux `crontab`. 
   * `psql_docker.sh` - The script runs Docker if not running and create, start or stop a container `jrvs-psql` based on provided username and password.
