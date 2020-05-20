@@ -4,7 +4,6 @@
 Cluster Monitor Agent is an internal tool that allows users to monitors nodes connected in a Linux cluster by tracking and recording resources usage (CPU and Memory usages) in realtime to an RDBMS Database. Using Docker, a container for psql instance is created, which contains the database that holds the recorded data. In every 1 minute interval, the resource usage information is fed to the database. It helps the infrastructure team to generate some reports for future resource planning purposes such as addition or removal of servers to support their business. For instance, if the usage of the server has a higher percentage, then more node/server/host would be required to distribute the load efficiently.
 
 ## Architecture and Design
-
    ![Cluster Diagram](./assets/Cluster_Diagram_final.png)
    
 As described in the architecture diagram above, all the nodes/servers/hosts are connected through a network switch. Bash script (Monitoring agent) is running on each node in the Linux Cluster. These scripts will execute individually on the nodes, and acquire its resource usage data which will be directed and stored to the database set up on node 1. 
@@ -41,7 +40,8 @@ Following are Linux Resource Usgae Data in `host_usage` table and is tracked eve
        ii) Calculating the average used memory percentage over 5 minutes interval for each host/server.
 
 ## Usage
-1) Database and Table initialization 
+1) Database and Table initialization
+
    Before starting with monitoring agent bash script, it is needed to setup a psql instance `jrvs-psql` using docker. Then create `host_agent` database followed by creating `host_info` and `host_usage` tables.
    ```
    # Create a psql docker container with the given username and password.
@@ -51,16 +51,19 @@ Following are Linux Resource Usgae Data in `host_usage` table and is tracked eve
    psql -h psql_host -U psql_user -W -d psql_database -f linux_sql/sql/ddl.sql
    ```
 2) *host_info.sh* Usage
+
    Now to collect hardware information data from the host/node/server and store it on table `host_info` present inside the database `host_agent` which is in turn present inside the psql container `jrvs-psql` and  run the following command: 
    ```
    bash ./linux_sql/scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
    ```
 3) *host_usage.sh* Usage
+
    In order to collect server usgae information and store on `host_usage` table execute the following command:
    ```
    bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
    ```  
 4) crontab Setup
+
    A crontab job can be created to repeatedly run *host_usage.sh* script after a specified interval. It can be done as follows:
    ```
    #edit crontab jobs
