@@ -1,24 +1,28 @@
 package ca.jrvs.apps.practice;
 
 public interface RegexExc {
+
   /**
-   * return true if filename extension is jpg or jpeg (case insensitive)
-   * @param filename
+   * return true if filename extension is jpg or jpeg (case insensitive).
+   *
+   * @param filename filename to match
    * @return
    */
   public boolean matchJpeg(String filename);
 
   /**
-   * return true if ip is valid
-   * to simplify the problem, IP address range is from 0.0.0.0 to 999.999.999.999
-   * @param ip
+   * return true if ip is valid to simplify the problem, IP address range is from 0.0.0.0 to
+   * 999.999.999.999
+   *
+   * @param ip Ip to match
    * @return
    */
   public boolean matchIp(String ip);
 
   /**
    * return true if line is empty (e.g. empty, white space,tab, etc..)
-   * @param line
+   *
+   * @param line line to check
    * @return
    */
   public boolean isEmptyLine(String line);
