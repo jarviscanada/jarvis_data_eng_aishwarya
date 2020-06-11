@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JavaGrepLambdaImp extends JavaGrepImp {
-
+  /**
+   * The main is used to take program arguments and initial the process method.
+   * @param args takes the regex, rootPath and outFile
+   */
   public static void main(String[] args) {
-    if (args.length !=3) {
+    if (args.length != 3) {
       throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
     }
 
@@ -24,28 +27,32 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     try {
       javaGrepLambdaImp.process();
     } catch (Exception ex) {
-      javaGrepLambdaImp.logger.error(ex.getMessage(),ex);
+      javaGrepLambdaImp.logger.error("Invalid input", ex);
     }
   }
 
   @Override
   public void process() throws IOException {
     List<String> matchesLines = new ArrayList<>();
-    this.listFiles(this.getRootPath()).stream().forEach(file->{this.readLines(file).stream().filter(line->this.containsPattern(line)).forEach(line->matchesLines.add(line));});
+    this.listFiles(this.getRootPath()).stream().forEach(file -> {
+      this.readLines(file).stream().filter(line -> this.containsPattern(line))
+          .forEach(line -> matchesLines.add(line));
+    });
 
     try {
       this.writeToFile(matchesLines);
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Invalid input", ex);
     }
   }
 
   @Override
   public List<File> listFiles(String rootDir) {
     try {
-      return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile).collect(Collectors.toList());
+      return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile)
+          .collect(Collectors.toList());
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Invalid input", ex);
     }
     return null;
   }
@@ -55,7 +62,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     try {
       return Files.lines(Paths.get(inputFile.toString())).collect(Collectors.toList());
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(),ex);
+      this.logger.error("Invalid input file", ex);
     }
     return null;
   }
@@ -67,7 +74,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
-    Files.write(Paths.get(this.getOutFile()),lines);
+    Files.write(Paths.get(this.getOutFile()), lines);
   }
 
   @Override
