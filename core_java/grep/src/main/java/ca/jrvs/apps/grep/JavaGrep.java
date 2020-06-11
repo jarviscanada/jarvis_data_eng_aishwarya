@@ -5,23 +5,25 @@ import java.io.IOException;
 import java.util.List;
 
 public interface JavaGrep {
+
   /**
-   * Top level search workflow
-   * @throws IOException
+   * Top level search workflow.
+   *
+   * @throws IOException when invalid input is passed
    */
   void process() throws IOException;
 
   /**
-   * Traverse a given directory and return all files
+   * Traverse a given directory and return all files.
+   *
    * @param rootDir input directory
    * @return files under the rootDir
    */
   List<File> listFiles(String rootDir);
 
   /**
-   * Read a file and return all the lines
-   *
-   * Explain FileReader, BufferedReader, and character encoding
+   * Read a file and return all the lines. Explain FileReader, BufferedReader, and character
+   * encoding
    *
    * @param inputFile file to be read
    * @return lines
@@ -30,16 +32,15 @@ public interface JavaGrep {
   List<String> readLines(File inputFile);
 
   /**
-   * Check if a line contains the regex pattern (passed by user)
+   * Check if a line contains the regex pattern (passed by user).
+   *
    * @param line input string
    * @return true if there is a match
    */
   boolean containsPattern(String line);
 
   /**
-   * Write lines to a file
-   *
-   * Explore: FileOutputStream, OutputStreamWriter, and BufferedWriter
+   * Write lines to a file. Explore: FileOutputStream, OutputStreamWriter, and BufferedWriter
    *
    * @param lines matched line
    * @throws IOException if write failed
