@@ -11,20 +11,21 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class OrderDAO extends DataAccessObject<Order> {
+public class Orderdao extends DataAccessObject<Order> {
+
   final Logger logger = LoggerFactory.getLogger(DataAccessObject.class);
   private static final String GET_BY_ID = "SELECT c.first_name, c.last_name, c.email,"
-      +"o.order_id,o.creation_date,o.total_due, o.status,"
-      +"s.first_name, s.last_name, s.email,"
-      +"ol.quantity, p.code, p.name, p.size, p.variety, p.price"
-      +" FROM orders o"
-      +" JOIN customer c on o.customer_id = c.customer_id"
-      +" JOIN salesperson s on o.salesperson_id=s.salesperson_id"
-      +" JOIN order_item ol on ol.order_id=o.order_id"
-      +" JOIN product p on ol.product_id = p.product_id"
-      +" where o.order_id = ?";
+      + "o.order_id,o.creation_date,o.total_due, o.status,"
+      + "s.first_name, s.last_name, s.email,"
+      + "ol.quantity, p.code, p.name, p.size, p.variety, p.price"
+      + " FROM orders o"
+      + " JOIN customer c on o.customer_id = c.customer_id"
+      + " JOIN salesperson s on o.salesperson_id=s.salesperson_id"
+      + " JOIN order_item ol on ol.order_id=o.order_id"
+      + " JOIN product p on ol.product_id = p.product_id"
+      + " where o.order_id = ?";
 
-  public OrderDAO(Connection connection) {
+  public Orderdao(Connection connection) {
     super(connection);
   }
 
@@ -37,7 +38,7 @@ public class OrderDAO extends DataAccessObject<Order> {
       long orderId = 0;
       List<Orderline> orderLines = new ArrayList<>();
       while (resultSet.next()) {
-        if (orderId==0) {
+        if (orderId == 0) {
           order.setCustomerFirstName(resultSet.getString(1));
           order.setCustomerLastName(resultSet.getString(2));
           order.setCustomerEmail(resultSet.getString(3));
@@ -61,7 +62,7 @@ public class OrderDAO extends DataAccessObject<Order> {
       }
       order.setOrderLines(orderLines);
     } catch (SQLException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Invalid input", ex);
       throw new RuntimeException(ex);
     }
     return order;

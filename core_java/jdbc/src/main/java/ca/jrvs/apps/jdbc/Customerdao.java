@@ -8,12 +8,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CustomerDAO extends DataAccessObject<Customer> {
+public class Customerdao extends DataAccessObject<Customer> {
+
   final Logger logger = LoggerFactory.getLogger(DataAccessObject.class);
   private static final String INSERT = "INSERT INTO Customer (first_name, last_name,"
-    +"email, phone, address, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+      + "email, phone, address, city, state, zipcode) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-  public CustomerDAO(Connection connection) {
+  public Customerdao(Connection connection) {
     super(connection);
   }
 
@@ -34,7 +35,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
   @Override
   public Customer create(Customer dto) {
-    try(PreparedStatement statement = this.connection.prepareStatement(INSERT);){
+    try (PreparedStatement statement = this.connection.prepareStatement(INSERT);) {
       statement.setString(1, dto.getFirstName());
       statement.setString(2, dto.getLastName());
       statement.setString(3, dto.getEmail());
@@ -45,8 +46,8 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.setString(8, dto.getZipCode());
       statement.execute();
       return null;
-    }catch(SQLException ex){
-      this.logger.error(ex.getMessage(),ex);
+    } catch (SQLException ex) {
+      this.logger.error("Invalid input", ex);
       throw new RuntimeException(ex);
     }
   }

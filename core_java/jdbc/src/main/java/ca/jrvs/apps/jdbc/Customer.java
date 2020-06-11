@@ -2,7 +2,8 @@ package ca.jrvs.apps.jdbc;
 
 import ca.jrvs.apps.jdbc.util.DataTransferObject;
 
-public class Customer implements DataTransferObject{
+public class Customer implements DataTransferObject {
+
   private long id;
   private String firstName;
   private String lastName;
@@ -12,6 +13,7 @@ public class Customer implements DataTransferObject{
   private String city;
   private String state;
   private String zipCode;
+
   public long getId() {
     return id;
   }
@@ -36,7 +38,9 @@ public class Customer implements DataTransferObject{
     this.lastName = lastName;
   }
 
-  public String getEmail() { return email; }
+  public String getEmail() {
+    return email;
+  }
 
   public void setEmail(String email) {
     this.email = email;

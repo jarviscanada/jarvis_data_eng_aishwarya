@@ -3,6 +3,7 @@ package ca.jrvs.apps.jdbc;
 import java.math.BigDecimal;
 
 public class Orderline {
+
   private int quantity;
   private String productCode;
   private String productName;
@@ -60,11 +61,12 @@ public class Orderline {
 
   @Override
   public String toString() {
-    return "{" + "quantity : "+quantity +
-        ", productCode : "+productCode+
-        ", productName : "+productName+
-        ", productSize : "+productSize+
-        ", productVariety : "+productVariety+
-        ", productPrice : "+productPrice+ "}";
+    return "{" + "quantity : " + quantity
+        + ", productCode : " + productCode
+        + ", productName : " + productName
+        + ", productSize : " + productSize
+        + ", productVariety : " + productVariety
+        + ", productPrice : " + productPrice
+        + "}";
   }
 }

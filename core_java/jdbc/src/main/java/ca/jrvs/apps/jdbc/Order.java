@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Order implements DataTransferObject {
+
   private String customerFirstName;
   private String customerLastName;
   private String customerEmail;
@@ -109,16 +110,16 @@ public class Order implements DataTransferObject {
 
   @Override
   public String toString() {
-    return "order{" + "id : "+id +
-        ", customerFirstName : "+customerFirstName+
-        ", customerLastName : "+customerLastName+
-        ", customerEmail : "+customerEmail+
-        ", creationDate : "+creationDate+
-        ", totalDue : "+totalDue+
-        ", status : "+status+
-        ", salespersonFirstName : "+salespersonFirstName+
-        ", salespersonLastName : "+salespersonLastName+
-        ", salespersonEmail : "+salespersonEmail+
-        ", orderLines : "+orderLines+"}";
+    return "order{" + "id : " + id
+        + ", customerFirstName : " + customerFirstName
+        + ", customerLastName : " + customerLastName
+        + ", customerEmail : " + customerEmail
+        + ", creationDate : " + creationDate
+        + ", totalDue : " + totalDue
+        + ", status : " + status
+        + ", salespersonFirstName : " + salespersonFirstName
+        + ", salespersonLastName : " + salespersonLastName
+        + ", salespersonEmail : " + salespersonEmail
+        + ", orderLines : " + orderLines + "}";
   }
 }
