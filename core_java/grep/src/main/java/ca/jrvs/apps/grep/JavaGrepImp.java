@@ -15,7 +15,8 @@ import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JavaGrepImp implements JavaGrep{
+public class JavaGrepImp implements JavaGrep {
+
   final Logger logger = LoggerFactory.getLogger(JavaGrep.class);
 
   private String regex;
@@ -65,7 +66,7 @@ public class JavaGrepImp implements JavaGrep{
     try {
       this.writeToFile(matchesLines);
     } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+      this.logger.error("Invalid input to write", ex);
     }
   }
 
@@ -74,17 +75,16 @@ public class JavaGrepImp implements JavaGrep{
     File f = new File(rootDir);
     List<File> listFile = new ArrayList<File>();
     File[] files = f.listFiles();
-    if (files != null && files.length>0) {
+    if (files != null && files.length > 0) {
       for (File file : files) {
-          if (file.isDirectory()) {
-            for (File subFile : listFiles(file.getAbsolutePath())) {
-              listFile.add(subFile);
-            }
+        if (file.isDirectory()) {
+          for (File subFile : listFiles(file.getAbsolutePath())) {
+            listFile.add(subFile);
           }
-          else {
-            listFile.add(file);
-          }
+        } else {
+          listFile.add(file);
         }
+      }
     }
     return listFile;
   }
@@ -95,22 +95,22 @@ public class JavaGrepImp implements JavaGrep{
     try {
       fileReader = new FileReader(inputFile);
     } catch (FileNotFoundException ex) {
-      if ( !inputFile.isFile()) {
-        throw new IllegalArgumentException(" Invalid Input file",ex);
+      if (!inputFile.isFile()) {
+        throw new IllegalArgumentException("Not a file", ex);
+      } else {
+        this.logger.error("Invalid input file", ex);
       }
-      else {
-        this.logger.error(ex.getMessage(), ex);
-        }
-      }
+    }
     BufferedReader bufferedReader = new BufferedReader(fileReader);
     String line = null;
     List<String> readLine = new ArrayList<String>();
     while (true) {
       try {
-        if (!((line = bufferedReader.readLine()) != null))
+        if (!((line = bufferedReader.readLine()) != null)) {
           break;
+        }
       } catch (IOException ex) {
-        this.logger.error(ex.getMessage(), ex);
+        this.logger.error("Invalid input read line", ex);
       }
       readLine.add(line);
     }
@@ -119,28 +119,32 @@ public class JavaGrepImp implements JavaGrep{
 
   @Override
   public boolean containsPattern(String line) {
-    return Pattern.matches(this.getRegex(),line);
+    return Pattern.matches(this.getRegex(), line);
   }
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
-      File file = new File(this.getOutFile());
-//    If doesn't exists then create new file
-      if (!file.exists()) {
+    File file = new File(this.getOutFile());
+    // If doesn't exists then create new file
+    if (!file.exists()) {
       file.createNewFile();
-      }
-      FileOutputStream fout = new FileOutputStream(file);
-      OutputStreamWriter out = new OutputStreamWriter(fout);
-      BufferedWriter bout = new BufferedWriter(out);
-      for ( int i=0 ; i < lines.size(); i++ ) {
-        bout.write("\t"+lines.get(i).trim()+"\n");
-        bout.flush();
-      }
-      bout.close();
-      out.close();
-      fout.close();
+    }
+    FileOutputStream fout = new FileOutputStream(file);
+    OutputStreamWriter out = new OutputStreamWriter(fout);
+    BufferedWriter bout = new BufferedWriter(out);
+    for (int i = 0; i < lines.size(); i++) {
+      bout.write("\t" + lines.get(i).trim() + "\n");
+      bout.flush();
+    }
+    bout.close();
+    out.close();
+    fout.close();
   }
 
+  /**
+   * The main is used to take program arguments and initial the process method.
+   * @param args takes the regex, rootPath and outFile
+   */
   public static void main(String[] args) {
     if (args.length != 3) {
       throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
@@ -154,7 +158,7 @@ public class JavaGrepImp implements JavaGrep{
     try {
       javaGrepImp.process();
     } catch (IOException ex) {
-      javaGrepImp.logger.error(ex.getMessage(), ex);
+      javaGrepImp.logger.error("Invalid input", ex);
     }
   }
 }
