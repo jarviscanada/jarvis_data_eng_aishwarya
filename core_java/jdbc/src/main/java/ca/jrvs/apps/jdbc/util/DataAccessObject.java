@@ -40,7 +40,7 @@ public abstract class DataAccessObject<T extends DataTransferObject> {
       }
       return key;
     } catch (SQLException ex) {
-      this.logger.error("Invalid input", ex);
+      logger.error("Invalid input", ex);
       throw new RuntimeException(ex);
     }
   }
