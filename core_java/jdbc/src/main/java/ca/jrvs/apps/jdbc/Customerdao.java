@@ -47,7 +47,7 @@ public class Customerdao extends DataAccessObject<Customer> {
       statement.execute();
       return null;
     } catch (SQLException ex) {
-      this.logger.error("Invalid input", ex);
+      logger.error("Invalid input", ex);
       throw new RuntimeException(ex);
     }
   }

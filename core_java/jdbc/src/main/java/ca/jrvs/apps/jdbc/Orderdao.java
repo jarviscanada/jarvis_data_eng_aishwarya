@@ -62,7 +62,7 @@ public class Orderdao extends DataAccessObject<Order> {
       }
       order.setOrderLines(orderLines);
     } catch (SQLException ex) {
-      this.logger.error("Invalid input", ex);
+      logger.error("Invalid input", ex);
       throw new RuntimeException(ex);
     }
     return order;
