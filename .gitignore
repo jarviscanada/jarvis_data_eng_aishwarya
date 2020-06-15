@@ -5,5 +5,5 @@ target/
 *.ear
 *.logs
 *.iml
-.idea/
+**/.idea/
 .eclipse
