@@ -1,5 +1,7 @@
 package ca.jrvs.practice.dataStructure.list;
 
+import java.util.Arrays;
+
 public class ArrayJList<E> implements JList<E> {
 
   /**
@@ -41,42 +43,68 @@ public class ArrayJList<E> implements JList<E> {
 
 
   /**
-   * Appends the specified element to the end of this list (optional operation).
-   * Double elementData size if elementData is full.
+   * Appends the specified element to the end of this list (optional operation). Double elementData
+   * size if elementData is full.
    */
   @Override
   public boolean add(E e) {
-    return false;
+    if (e == null) {
+      throw new NullPointerException(
+          "Null value");
+    }
+    if (size - elementData.length == 0) {
+      int capacity = size << 1;
+      elementData = Arrays.copyOf(elementData, capacity);
+    }
+    elementData[size++] = e;
+    return true;
   }
 
   @Override
   public Object[] toArray() {
-    return new Object[0];
+    return Arrays.copyOf(elementData, size);
   }
 
   @Override
   public int size() {
-    return 0;
+    return size;
   }
 
   @Override
   public boolean isEmpty() {
-    return false;
+    return size == 0;
   }
 
   @Override
   public int indexOf(Object o) {
-    return 0;
+    for (int i = 0; i < size; i++) {
+      if (elementData[i] == o) {
+        return i;
+      }
+    }
+    return -1;
   }
 
   @Override
   public boolean contains(Object o) {
+    if (o == null) {
+      throw new NullPointerException("Null Object");
+    }
+    for (int i = 0; i < size; i++) {
+      if (elementData[i] == o) {
+        return true;
+      }
+    }
     return false;
   }
 
   @Override
   public E get(int index) {
-    return null;
+    if (index > size) {
+      throw new IndexOutOfBoundsException(
+          "Index value more than size of ArrayList" + " Size: " + size + " index: " + index);
+    }
+    return (E) elementData[index];
   }
 
   /**
@@ -89,11 +117,25 @@ public class ArrayJList<E> implements JList<E> {
    */
   @Override
   public E remove(int index) {
-    return null;
+    if (index > size) {
+      throw new IndexOutOfBoundsException(
+          "Index value more than size of ArrayList" + " Size: " + size + " index: " + index);
+    }
+    E element = (E) elementData[index];
+    for (int i = 0; i < size - 1; i++) {
+      if (i >= index) {
+        elementData[i] = elementData[i + 1];
+      }
+    }
+    elementData[--size] = null;
+    return element;
   }
 
   @Override
   public void clear() {
-
+    for (int i = 0; i < size; i++) {
+      elementData[i] = null;
+      size = 0;
+    }
   }
 }
