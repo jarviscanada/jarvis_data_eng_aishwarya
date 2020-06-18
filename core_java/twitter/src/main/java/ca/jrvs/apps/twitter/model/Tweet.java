@@ -1,11 +1,14 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
     "create_at",
     "id",
@@ -44,24 +47,26 @@ public class Tweet {
   private double longitude;
   private double latitude;
 
-//  public Tweet(String text, double longitude, double latitude) {
-//    this.text = text;
-//    this.longitude = longitude;
-//    this.latitude = latitude;
-//  }
-
+  /**
+   * Used to build a tweet from given parameters.
+   * @param text tweet to be posted
+   * @param lon longitude
+   * @param lat latittude
+   * @return
+   */
   public static Tweet tweetBuild(String text, Double lon, Double lat) {
     Tweet tweet = new Tweet();
-    tweet.setEntities(text);
-    tweet.setCoordinates(lon,lat);
+    List<Double> coord = new ArrayList<>();
+    coord.add(0, lon);
+    coord.add(1, lat);
+    tweet.setText(text);
+    tweet.coordinates = new Coordinates();
+    tweet.coordinates.setCoordinates(coord);
+    tweet.entities = new Entities();
+    tweet.entities.setTweet(text);
+    System.out.println(tweet);
     return tweet;
   }
-
-//  public void tweetBuild() {
-//   // Tweet tweet = new Tweet(this.text,this.longitude,this.latitude);
-//    this.setEntities(this.text);
-//    this.setCoordinates(this.longitude,this.latitude);
-//  }
 
   @JsonProperty("created_at")
   public String getCreateAt() {
@@ -109,18 +114,19 @@ public class Tweet {
   }
 
   @JsonProperty("entities")
-  public void setEntities(String text) {
-    this.entities = new Entities(text);
+  public void setEntities(Entities entities) {
+    this.entities = entities;
+    this.entities.setTweet(this.getText());
   }
 
   @JsonProperty("coordinates")
-  public List<Coordinates> getCoordinates() {
-    return this.coordinates.getCoordinatesComponents();
+  public void setCoordinates(Coordinates coordinates) {
+    this.coordinates = coordinates;
   }
 
   @JsonProperty("coordinates")
-  public void setCoordinates(double longitude,double latitude) {
-    this.coordinates = new Coordinates(longitude,latitude);
+  public Coordinates getCoordinates() {
+    return coordinates;
   }
 
   @JsonProperty("retweet_count")
@@ -163,25 +169,4 @@ public class Tweet {
     this.retweeted = retweeted;
   }
 
-//  @Override
-//  public String toString() {
-//    return "{\n\t\"created_at\":\"" + getCreateAt()
-//        + "\",\n\t\"id\":\"" + getId()
-//        + "\",\n\t\"id_str\":\"" + getIdStr()
-//        + "\",\n\t\"text\":\"" + getText()
-//        + "\",\n\t\"entities\":" + getEntities()
-//        + ",\n\t\"coordinates\":" + getCoordinates().get(0)
-//        + ",\n\t\"retweet_count\":" + getRetweetCount()
-//        + ",\n\t\"favorite_count\":" + getFavoriteCount()
-//        + ",\n\t\"favorited\":" + getFavorited()
-//        + ",\n\t\"retweeted\":" + getRetweeted()
-//        + "\n}";
-//  }
-
-//  public static void main(String[] args) {
-//    String tweet = "@someone and @holaother lets test it #code #test";
-//    Tweet postTweet = new Tweet(tweet,1d,-1d);
-//    postTweet.tweetBuild();
-//    System.out.println(postTweet);
-//  }
 }

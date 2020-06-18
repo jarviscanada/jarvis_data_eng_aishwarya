@@ -1,91 +1,88 @@
 package ca.jrvs.apps.twitter.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "name",
+    "indices",
+    "screen_name",
+    "id",
+    "id_str"
+})
 public class UserMention {
 
-  private int[] indices = new int[2];
+  @JsonProperty("indices")
+  private List<Integer> indices;
+  @JsonProperty("name")
   private String name;
+  @JsonProperty("screen_name")
   private String screenName;
+  @JsonProperty("id")
   private long id;
+  @JsonProperty("id_str")
   private String idStr;
   private String tweet;
 
-  public UserMention(String tweet) {
-    this.tweet = tweet;
+  @JsonProperty("indices")
+  public List<Integer> getIndices() {
+    return indices;
   }
 
-  public String getIndices() {
-    return Arrays.toString(indices);
+  @JsonProperty("indices")
+  public void setIndices(List<Integer> indices) {
+    this.indices = indices;
   }
 
+  @JsonProperty("name")
   public String getName() {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
 
+  @JsonProperty("screen_name")
   public String getScreenName() {
     return screenName;
   }
 
+  @JsonProperty("screen_name")
   public void setScreenName(String screenName) {
     this.screenName = screenName;
   }
 
+  @JsonProperty("id")
   public long getId() {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(long id) {
     this.id = id;
   }
 
+  @JsonProperty("id_str")
   public String getIdStr() {
     return idStr;
   }
 
+  @JsonProperty("id_str")
   public void setIdStr(String idStr) {
     this.idStr = idStr;
   }
 
-  public List<UserMention> userMentionComponents() {
-    Pattern pattern = Pattern.compile("(@\\w+)\\b", Pattern.CASE_INSENSITIVE);
-    Matcher matcher = pattern.matcher(this.tweet);
-    List<UserMention> users = new ArrayList<>();
-    while (matcher.find()) {
-      UserMention userMention = new UserMention(tweet);
-      userMention.indices[0] = this.tweet.indexOf(matcher.group(1));
-      userMention.indices[1] = (userMention.indices[0] + matcher.group(1).length());
-      userMention.screenName = matcher.group(1).substring(1);
-      users.add(userMention);
-    }
-    return users;
-    //Don't know how to get name and id of the user
+  public String getTweet() {
+    return tweet;
   }
 
-//  @Override
-//  public String toString() {
-//    return "\n\t\t\t{\n"
-//        + "\t\t\t\t\t\"name\":\"" + getName()
-//        + "\",\n\t\t\t\t\t\"indices\":" + getIndices()
-//        + ",\n\t\t\t\t\t\"screen_name\":\"" + getScreenName()
-//        + "\",\n\t\t\t\t\t\"id\":" + getId()
-//        + "\n\t\t\t\t\t\"id_str\":\"" + getIdStr()
-//        + "\"\n\t\t\t}";
-//  }
+  public void setTweet(String tweet) {
+    this.tweet = tweet;
+  }
 
-//  public static void main(String[] args) {
-//    String tweet = "Good Morning @someone and @others";
-//    UserMention us = new UserMention(tweet);
-//    System.out.println(us.userMentionComponents());
-//  }
 }
