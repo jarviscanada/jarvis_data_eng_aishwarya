@@ -10,7 +10,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
-    "create_at",
+    "created_at",
     "id",
     "id_str",
     "text",
