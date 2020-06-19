@@ -36,6 +36,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
   /**
    * Getting post URI.
+   *
    * @param tweet Tweet entity
    * @return
    * @throws URISyntaxException
@@ -44,7 +45,9 @@ public class TwitterDao implements CrdDao<Tweet, String> {
   public URI getPostUri(Tweet tweet) throws URISyntaxException, UnsupportedEncodingException {
     PercentEscaper percentEscaper = new PercentEscaper("", false);
     return new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL + percentEscaper
-        .escape(tweet.getText()));
+        .escape(tweet.getText()) + AMPERSAND + "lat" + EQUAL + tweet.getCoordinates()
+        .getCoordinates().get(1) + AMPERSAND + "long" + EQUAL + tweet.getCoordinates()
+        .getCoordinates().get(0));
   }
 
   public URI getTweetUri(String id) throws URISyntaxException, UnsupportedEncodingException {
