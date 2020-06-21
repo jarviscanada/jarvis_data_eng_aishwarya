@@ -36,5 +36,4 @@ public class Coordinates {
   public String getType() {
     return type;
   }
-
 }

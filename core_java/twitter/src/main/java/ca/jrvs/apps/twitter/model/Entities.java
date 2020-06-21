@@ -19,8 +19,6 @@ public class Entities {
   private List<Hashtag> hashtag;
   @JsonProperty("user_mentions")
   private List<UserMention> userMention;
-  @JsonIgnore
-  private String tweet;
 
   @JsonProperty("hashtags")
   public List<Hashtag> getHashtag() {
@@ -41,13 +39,4 @@ public class Entities {
   public void setUserMention(List<UserMention> userMention) {
     this.userMention = userMention;
   }
-
-  public String getTweet() {
-    return tweet;
-  }
-
-  public void setTweet(String tweet) {
-    this.tweet = tweet;
-  }
-
 }

@@ -16,7 +16,6 @@ public class Hashtag {
   private List<Integer> indices;
   @JsonProperty("text")
   private String text;
-  private String tweet;
 
   @JsonProperty("indices")
   public List<Integer> getIndices() {
@@ -37,13 +36,4 @@ public class Hashtag {
   public void setText(String text) {
     this.text = text;
   }
-
-  public String getTweet() {
-    return tweet;
-  }
-
-  public void setTweet(String tweet) {
-    this.tweet = tweet;
-  }
-
 }
