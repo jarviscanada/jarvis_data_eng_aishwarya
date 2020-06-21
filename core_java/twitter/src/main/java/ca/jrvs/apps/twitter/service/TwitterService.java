@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
+import org.springframework.util.StringUtils;
 
 public class TwitterService implements Service {
 
@@ -59,44 +60,49 @@ public class TwitterService implements Service {
    */
   @Override
   public Tweet showTweet(String id, String[] fields) {
-    String[] top_fields = {"created_at", "id", "id_str", "text", "entities", "coordinates", "retweet_count", "favorite_count", "favorite", "retweeted"};
+    String[] topFields = {"created_at", "id", "id_str", "text", "entities", "coordinates",
+        "retweet_count", "favorite_count", "favorite", "retweeted"};
     try {
       Tweet tweet = (Tweet) dao.findById(id);
-      for(String field:top_fields){
-        if(!Arrays.asList(fields).contains(field)){
-          switch (field){
-            case "created_at":
-              tweet.setCreateAt(null);
-              break;
-            case "id":
-              tweet.setId(null);
-              break;
-            case "id_str":
-              tweet.setIdStr(null);
-              break;
-            case "text":
-              tweet.setText(null);
-              break;
-            case "entities":
-              tweet.setEntities(null);
-              break;
-            case "coordinates":
-              tweet.setCoordinates(null);
-              break;
-            case "retweet_count":
-              tweet.setRetweetCount(null);
-              break;
-            case "favorite_count":
-              tweet.setFavoriteCount(null);
-              break;
-            case "favorite":
-              tweet.setFavorited(null);
-              break;
-            case "retweeted":
-              tweet.setRetweeted(null);
-              break;
-          }
+      if (!StringUtils.isEmpty(fields) && tweet != null) {
+        for (String field : topFields) {
+          if (!Arrays.asList(fields).contains(field)) {
+            switch (field) {
+              case "created_at":
+                tweet.setCreateAt(null);
+                break;
+              case "id":
+                tweet.setId(null);
+                break;
+              case "id_str":
+                tweet.setIdStr(null);
+                break;
+              case "text":
+                tweet.setText(null);
+                break;
+              case "entities":
+                tweet.setEntities(null);
+                break;
+              case "coordinates":
+                tweet.setCoordinates(null);
+                break;
+              case "retweet_count":
+                tweet.setRetweetCount(null);
+                break;
+              case "favorite_count":
+                tweet.setFavoriteCount(null);
+                break;
+              case "favorite":
+                tweet.setFavorited(null);
+                break;
+              case "retweeted":
+                tweet.setRetweeted(null);
+                break;
+              default:
+                throw new RuntimeException("Field not found");
+            }
 
+          }
         }
       }
       return tweet;

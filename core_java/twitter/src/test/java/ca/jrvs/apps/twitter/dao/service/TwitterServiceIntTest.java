@@ -47,8 +47,8 @@ public class TwitterServiceIntTest {
     Double lon = -1d;
     Tweet postTweet = Tweet.tweetBuild(text, lon, lat);
     Tweet tweet = twitterService.postTweet(postTweet);
-    String[] fields = {"text","id","id_str","retweeted"};
-    Tweet getTweet = twitterService.showTweet(tweet.getIdStr(),fields );
+    String[] fields = {"text", "id", "id_str", "retweeted"};
+    Tweet getTweet = twitterService.showTweet(tweet.getIdStr(), fields);
     System.out.println(JsonParser.toJson(getTweet, true, false));
   }
 
