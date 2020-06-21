@@ -43,11 +43,12 @@ public class TwitterControllerIntTest {
   @Test
   public void showTweet() throws Exception {
 
-    String[] userInputs = {"post", "Get controller 4", "50.0:1.0"};
+    String[] userInputs = {"post", "Get controller new", "50.0:1.0"};
     Tweet tweet = controller.postTweet(userInputs);
     System.out.println(JsonParser.toJson(tweet, true, false));
     String tweet_id = tweet.getIdStr();
-    String[] user_showinputs = {"show", tweet_id};
+    String[] fields = {"created_at", "id", "text", "coordinates"};
+    String[] user_showinputs = {"show", tweet_id, String.join(",", fields)};
     Tweet showTweet = controller.showTweet(user_showinputs);
     System.out.println(JsonParser.toJson(showTweet, true, false));
   }

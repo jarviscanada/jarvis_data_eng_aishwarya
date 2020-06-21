@@ -25,21 +25,21 @@ public class TwitterControllerUnitTest {
   TwitterController controller;
 
   @Test
-  public void postTweet(){
+  public void postTweet() {
     when(service.postTweet(any())).thenReturn(new Tweet());
     String[] userInputs = {"post", "Hey controller testing with Unit test", "50.0:1.0"};
     controller.postTweet(userInputs);
   }
 
   @Test
-  public void showTweet(){
-    when(service.showTweet(anyString(),any())).thenReturn(new Tweet());
-    String[] user_showinputs = {"show", "123"};
+  public void showTweet() {
+    when(service.showTweet(anyString(), any())).thenReturn(new Tweet());
+    String[] user_showinputs = {"show", "123", "created_at,text"};
     controller.showTweet(user_showinputs);
   }
 
   @Test
-  public void deleteTest(){
+  public void deleteTest() {
     when(service.deleteTweets(any())).thenReturn(new ArrayList<Tweet>());
     String[] user_deleteinputs = {"delete", "1,2,3"};
     controller.deleteTweet(user_deleteinputs);
