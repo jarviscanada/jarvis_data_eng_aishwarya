@@ -36,7 +36,8 @@ public class TwitterServiceUnitTest {
   @Test
   public void showTweet() {
     when(dao.findById(anyString())).thenReturn(new Tweet());
-    service.showTweet(Tweet.tweetBuild("text", 50.0, 0.0).getIdStr(), null);
+    String[] fields = {"text", "id", "id_str", "retweeted"};
+    service.showTweet(Tweet.tweetBuild("text", 50.0, 0.0).getIdStr(), fields);
   }
 
   @Test

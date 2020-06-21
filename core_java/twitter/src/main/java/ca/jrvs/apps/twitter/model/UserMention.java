@@ -22,10 +22,9 @@ public class UserMention {
   @JsonProperty("screen_name")
   private String screenName;
   @JsonProperty("id")
-  private long id;
+  private Long id;
   @JsonProperty("id_str")
   private String idStr;
-  private String tweet;
 
   @JsonProperty("indices")
   public List<Integer> getIndices() {
@@ -58,12 +57,12 @@ public class UserMention {
   }
 
   @JsonProperty("id")
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
   @JsonProperty("id")
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -76,13 +75,4 @@ public class UserMention {
   public void setIdStr(String idStr) {
     this.idStr = idStr;
   }
-
-  public String getTweet() {
-    return tweet;
-  }
-
-  public void setTweet(String tweet) {
-    this.tweet = tweet;
-  }
-
 }

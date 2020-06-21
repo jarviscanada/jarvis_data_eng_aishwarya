@@ -26,7 +26,7 @@ public class Tweet {
   @JsonProperty("created_at")
   private String createAt;
   @JsonProperty("id")
-  private long id;
+  private Long id;
   @JsonProperty("id_str")
   private String idStr;
   @JsonProperty("text")
@@ -36,7 +36,7 @@ public class Tweet {
   @JsonProperty("coordinates")
   private Coordinates coordinates;
   @JsonProperty("retweet_count")
-  private int retweetCount;
+  private Integer retweetCount;
   @JsonProperty("favorite_count")
   private Integer favoriteCount;
   @JsonProperty("favorited")
@@ -44,14 +44,12 @@ public class Tweet {
   @JsonProperty("retweeted")
   private Boolean retweeted;
 
-  private double longitude;
-  private double latitude;
-
   /**
    * Used to build a tweet from given parameters.
+   *
    * @param text tweet to be posted
-   * @param lon longitude
-   * @param lat latittude
+   * @param lon  longitude
+   * @param lat  latittude
    * @return
    */
   public static Tweet tweetBuild(String text, Double lon, Double lat) {
@@ -63,7 +61,6 @@ public class Tweet {
     tweet.coordinates = new Coordinates();
     tweet.coordinates.setCoordinates(coord);
     tweet.entities = new Entities();
-    tweet.entities.setTweet(text);
     System.out.println(tweet);
     return tweet;
   }
@@ -79,12 +76,12 @@ public class Tweet {
   }
 
   @JsonProperty("id")
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
   @JsonProperty("id")
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -116,7 +113,6 @@ public class Tweet {
   @JsonProperty("entities")
   public void setEntities(Entities entities) {
     this.entities = entities;
-    this.entities.setTweet(this.getText());
   }
 
   @JsonProperty("coordinates")
@@ -130,12 +126,12 @@ public class Tweet {
   }
 
   @JsonProperty("retweet_count")
-  public int getRetweetCount() {
+  public Integer getRetweetCount() {
     return retweetCount;
   }
 
   @JsonProperty("retweet_count")
-  public void setRetweetCount(int retweetCount) {
+  public void setRetweetCount(Integer retweetCount) {
     this.retweetCount = retweetCount;
   }
 
@@ -168,5 +164,4 @@ public class Tweet {
   public void setRetweeted(Boolean retweeted) {
     this.retweeted = retweeted;
   }
-
 }
