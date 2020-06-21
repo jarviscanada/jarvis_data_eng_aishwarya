@@ -3,6 +3,7 @@ package ca.jrvs.apps.twitter.service;
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -58,8 +59,47 @@ public class TwitterService implements Service {
    */
   @Override
   public Tweet showTweet(String id, String[] fields) {
+    String[] top_fields = {"created_at", "id", "id_str", "text", "entities", "coordinates", "retweet_count", "favorite_count", "favorite", "retweeted"};
     try {
-      return (Tweet) dao.findById(id);
+      Tweet tweet = (Tweet) dao.findById(id);
+      for(String field:top_fields){
+        if(!Arrays.asList(fields).contains(field)){
+          switch (field){
+            case "created_at":
+              tweet.setCreateAt(null);
+              break;
+            case "id":
+              tweet.setId(null);
+              break;
+            case "id_str":
+              tweet.setIdStr(null);
+              break;
+            case "text":
+              tweet.setText(null);
+              break;
+            case "entities":
+              tweet.setEntities(null);
+              break;
+            case "coordinates":
+              tweet.setCoordinates(null);
+              break;
+            case "retweet_count":
+              tweet.setRetweetCount(null);
+              break;
+            case "favorite_count":
+              tweet.setFavoriteCount(null);
+              break;
+            case "favorite":
+              tweet.setFavorited(null);
+              break;
+            case "retweeted":
+              tweet.setRetweeted(null);
+              break;
+          }
+
+        }
+      }
+      return tweet;
     } catch (IllegalArgumentException ex) {
       throw new IllegalArgumentException("id or fields param in valid", ex);
     }
