@@ -8,9 +8,8 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @SpringBootApplication is a convenience annotation that adds of the following:
- * <p>
- * - @Configuration - @EnableAutoConfiguration - @ComponentScan
+ * @SpringBootApplication is a convenience annotation that adds of the following: -@Configuration
+ *                 -@EnableAutoConfiguration -@ComponentScan
  */
 @SpringBootApplication(scanBasePackages = "ca.jrvs.apps.twiiter")
 public class TwitterCLISpringBoot implements CommandLineRunner {
