@@ -11,14 +11,17 @@ import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
 import ca.jrvs.apps.twitter.service.TwitterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TwitterCLIApp {
 
   public static final String USAGE = "USAGE: TwitterCLI post|show|delete [options]";
 
   private Controller controller;
 
-  //@Autowired
+  @Autowired
   public TwitterCLIApp(Controller controller) {
     this.controller = controller;
   }
