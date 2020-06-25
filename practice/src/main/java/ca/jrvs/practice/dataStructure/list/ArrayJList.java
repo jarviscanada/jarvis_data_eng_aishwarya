@@ -78,7 +78,7 @@ public class ArrayJList<E> implements JList<E> {
   @Override
   public int indexOf(Object o) {
     for (int i = 0; i < size; i++) {
-      if (elementData[i] == o) {
+      if (elementData[i].equals(o)) {
         return i;
       }
     }
@@ -91,7 +91,7 @@ public class ArrayJList<E> implements JList<E> {
       throw new NullPointerException("Null Object");
     }
     for (int i = 0; i < size; i++) {
-      if (elementData[i] == o) {
+      if (elementData[i].equals(o)) {
         return true;
       }
     }
