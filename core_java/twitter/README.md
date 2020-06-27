@@ -43,7 +43,7 @@ In this project, java app is implemented, which can post, show and delete twitte
 # Design
 - UML Class diagram
 
-![UML Class Diagram](./assets/UML Class Diagram-UML.png)
+  ![UML Class Diagram](assets/UML_Class_Diagram_UML.png)
 
 The components of this app are `TwitterCLIApp` or `main`, `TwitterController`, `TwitterService` and `TwitterDao`
 - DAO - The data access layer handles models (implemented with POJOs). In this app, the DAO layer post/show/delete tweet(s). In this app, `CrdDao` and `TwitterDao` only handle data with external storage, in this project REST API. `HttpHelper` and `TwitterHttpHelper` is solely responsible for executing HTTP with a given URI. Also, it authorizes the HTTP request using Twitter secrets.
