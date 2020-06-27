@@ -40,7 +40,7 @@ public class TwitterDaoUnitTest {
     //exception is expected here
     when(mockHelper.httpPost((isNotNull()))).thenThrow(new RuntimeException("mock"));
     try {
-      dao.create(Tweet.tweetBuild(text, lon, lat));
+      dao.findById(dao.create(Tweet.tweetBuild(text, lon, lat)).getIdStr());
       fail();
     } catch (RuntimeException ex) {
       assertTrue(true);
@@ -65,12 +65,12 @@ public class TwitterDaoUnitTest {
         + "   \"retweeted\":false\n"
         + "}";
 
-    when(mockHelper.httpGet(isNotNull())).thenReturn(null);
+    when(mockHelper.httpPost(isNotNull())).thenReturn(null);
     TwitterDao spyDao = Mockito.spy(dao);
     Tweet expectedTweet = JsonParser.toObjectFromJson(tweetJsonStr, Tweet.class);
     //mock parseResponseBody
     doReturn(expectedTweet).when(spyDao).parseResponseBody(any(), anyInt());
-    Tweet tweet = spyDao.create(Tweet.tweetBuild(text, lon, lat));
+    Tweet tweet = spyDao.findById(spyDao.create(Tweet.tweetBuild(text, lon, lat)).getIdStr());
     assertNotNull(tweet);
     assertNotNull(tweet.getText());
   }
@@ -132,7 +132,7 @@ public class TwitterDaoUnitTest {
     //exception is expected here
     when(mockHelper.httpPost((isNotNull()))).thenThrow(new RuntimeException("mock"));
     try {
-      dao.create(Tweet.tweetBuild(text, lon, lat));
+      dao.deleteById(dao.create(Tweet.tweetBuild(text,lon,lat)).getIdStr());
       fail();
     } catch (RuntimeException ex) {
       assertTrue(true);
@@ -162,7 +162,7 @@ public class TwitterDaoUnitTest {
     Tweet expectedTweet = JsonParser.toObjectFromJson(tweetJsonStr, Tweet.class);
     //mock parseResponseBody
     doReturn(expectedTweet).when(spyDao).parseResponseBody(any(), anyInt());
-    Tweet tweet = spyDao.create(Tweet.tweetBuild(text, lon, lat));
+    Tweet tweet = spyDao.deleteById(spyDao.create(Tweet.tweetBuild(text, lon, lat)).getIdStr());
     assertNotNull(tweet);
     assertNotNull(tweet.getText());
   }
