@@ -42,7 +42,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     try {
       this.writeToFile(matchesLines);
     } catch (IOException ex) {
-      this.logger.error("Invalid input", ex);
+      logger.error("Invalid input", ex);
     }
   }
 
@@ -52,7 +52,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
       return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile)
           .collect(Collectors.toList());
     } catch (IOException ex) {
-      this.logger.error("Invalid input", ex);
+      logger.error("Invalid input", ex);
     }
     return null;
   }
@@ -62,7 +62,7 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
     try {
       return Files.lines(Paths.get(inputFile.toString())).collect(Collectors.toList());
     } catch (IOException ex) {
-      this.logger.error("Invalid input file", ex);
+      logger.error("Invalid input file", ex);
     }
     return null;
   }

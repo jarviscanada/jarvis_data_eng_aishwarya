@@ -66,7 +66,7 @@ public class JavaGrepImp implements JavaGrep {
     try {
       this.writeToFile(matchesLines);
     } catch (IOException ex) {
-      this.logger.error("Invalid input to write", ex);
+      logger.error("Invalid input to write", ex);
     }
   }
 
@@ -98,7 +98,7 @@ public class JavaGrepImp implements JavaGrep {
       if (!inputFile.isFile()) {
         throw new IllegalArgumentException("Not a file", ex);
       } else {
-        this.logger.error("Invalid input file", ex);
+        logger.error("Invalid input file", ex);
       }
     }
     BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -110,7 +110,7 @@ public class JavaGrepImp implements JavaGrep {
           break;
         }
       } catch (IOException ex) {
-        this.logger.error("Invalid input read line", ex);
+        logger.error("Invalid input read line", ex);
       }
       readLine.add(line);
     }
