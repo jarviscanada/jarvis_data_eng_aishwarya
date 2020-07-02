@@ -3,7 +3,7 @@ package ca.jrvs.practice.codingChallenge;
 import java.util.List;
 
 /**
- * ticket: https://www.notion.so/Swap-two-numbers-8377365b7b174e14a1a61221230a1822
+ * ticket: https://www.notion.so/Swap-two-numbers-bfaf87d6c69c466fb6244d68ec61d776
  */
 public class SwapTwoNum {
 
@@ -18,7 +18,7 @@ public class SwapTwoNum {
   }
 
   /**
-   * Big-O: O(1) Justification: it's an arithmetic operation
+   * Big-O: O(1) Justification: it's an arithmetic operation.
    */
   public List<Integer> swapTwoNum(List<Integer> num) {
     num.set(0, Math.abs(num.get(0) - num.get(1)));

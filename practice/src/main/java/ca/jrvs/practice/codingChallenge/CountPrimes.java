@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ticket: https://www.notion.so/Count-Primes-55059d2ea3b844d69509919efa2faba7
+ * ticket: https://www.notion.so/Count-Primes-29bf338fb9174268b91230a5ae42a83f
  */
 public class CountPrimes {
 
