@@ -12,8 +12,11 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.CookieSpecs;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.cookie.CookieSpec;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -157,6 +160,9 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
       throw new DataRetrievalFailureException("HTTP failed with status: " + status, ex);
     }
 
+    if(status==404){
+      return Optional.empty();
+    }
     //Convert Response Entity to string
     String jsonStr = null;
     try {
@@ -173,6 +179,8 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
    * @return a httpClient
    */
   private CloseableHttpClient getHttpClient() {
+//    return HttpClients.custom().setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(
+//        CookieSpecs.STANDARD).build()).build();
     return HttpClients.custom().setConnectionManager(httpClientConnectionManager)
         //prevents connectionManager shutdown when calling httpClient.close()
         .setConnectionManagerShared(true).build();
