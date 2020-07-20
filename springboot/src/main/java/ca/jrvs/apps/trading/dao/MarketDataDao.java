@@ -160,7 +160,7 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
       throw new DataRetrievalFailureException("HTTP failed with status: " + status, ex);
     }
 
-    if(status==404){
+    if (status == 404) {
       return Optional.empty();
     }
     //Convert Response Entity to string
