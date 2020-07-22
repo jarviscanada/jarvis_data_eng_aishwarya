@@ -179,8 +179,6 @@ public class MarketDataDao implements CrudRepository<IexQuote, String> {
    * @return a httpClient
    */
   private CloseableHttpClient getHttpClient() {
-//    return HttpClients.custom().setDefaultRequestConfig(RequestConfig.custom().setCookieSpec(
-//        CookieSpecs.STANDARD).build()).build();
     return HttpClients.custom().setConnectionManager(httpClientConnectionManager)
         //prevents connectionManager shutdown when calling httpClient.close()
         .setConnectionManagerShared(true).build();
