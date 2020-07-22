@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-//@Api(value = "quote", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 @Controller
 @RequestMapping("/quote")
 public class QuoteController {
@@ -29,6 +29,16 @@ public class QuoteController {
   public IexQuote getQuote(@PathVariable String ticker) {
     try {
       return quoteService.findIexQuoteByTicker(ticker);
+    } catch (Exception ex) {
+      throw ResponseExceptionUtil.getResponseStatusException(ex);
+    }
+  }
+
+  @PutMapping(path = "/iexMarketData")
+  @ResponseStatus(HttpStatus.OK)
+  public void updateMarketData() {
+    try {
+      quoteService.updateMarketData();
     } catch (Exception ex) {
       throw ResponseExceptionUtil.getResponseStatusException(ex);
     }
