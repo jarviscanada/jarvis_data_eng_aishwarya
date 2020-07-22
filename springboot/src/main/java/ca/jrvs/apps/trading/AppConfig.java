@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@EnableTransactionManagement
 public class AppConfig {
 
   private Logger logger = LoggerFactory.getLogger(AppConfig.class);
@@ -29,7 +28,6 @@ public class AppConfig {
     String url = System.getenv("PSQL_URL");
     String user = System.getenv("PSQL_USER");
     String password = System.getenv("PSQL_PASSWORD");
-    //Never log your credentials/secrets. Use debugger instead
     BasicDataSource basicDataSource = new BasicDataSource();
     basicDataSource.setUrl(url);
     basicDataSource.setUsername(user);
