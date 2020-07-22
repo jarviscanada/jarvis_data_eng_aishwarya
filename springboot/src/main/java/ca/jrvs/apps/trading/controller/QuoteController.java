@@ -23,8 +23,6 @@ public class QuoteController {
     this.quoteService = quoteService;
   }
 
-  //@APIOperation(value = "Show iexQuote", notes = "Show iexQuote for a given ticker/symbols")
-  //@ApiResponses(value = {@ApiResponse(code = 404, message = "ticker is not found")})
   @GetMapping(path = "/iex/ticker/{ticker}")
   @ResponseStatus(HttpStatus.OK)
   @ResponseBody
