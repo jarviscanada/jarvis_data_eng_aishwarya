@@ -103,6 +103,16 @@ public class QuoteService {
   }
 
   /**
+   * Helper method
+   */
+  public QuoteData saveQuote(String ticker) {
+    IexQuote iexQuote = findIexQuoteByTicker(ticker);
+    QuoteData newQuote = buildQuoteFromTexQuote(iexQuote);
+    QuoteData createdQuote = saveQuote(newQuote);
+    return createdQuote;
+  }
+
+  /**
    * Update a given quote to quote table without validation.
    *
    * @param quote entity

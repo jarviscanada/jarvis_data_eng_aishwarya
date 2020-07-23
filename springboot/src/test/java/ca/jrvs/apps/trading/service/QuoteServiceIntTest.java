@@ -69,6 +69,7 @@ public class QuoteServiceIntTest {
     quote.setAskSize(15);
     quote.setLastPrice(15.4);
     QuoteData quoteData = quoteService.saveQuote(quote);
+    QuoteData quoteCreate = quoteService.saveQuote("FB");
     assertEquals("AAPL", quoteData.getTicker());
   }
 
