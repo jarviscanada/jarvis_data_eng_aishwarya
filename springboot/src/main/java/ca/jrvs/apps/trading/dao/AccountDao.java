@@ -1,10 +1,13 @@
 package ca.jrvs.apps.trading.dao;
 
 import ca.jrvs.apps.trading.model.domain.Account;
+import java.util.Optional;
 import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
@@ -68,4 +71,15 @@ public class AccountDao extends JdbcCrudDao<Account> {
     return values;
   }
 
+  public Account findByTraderId(Integer traderId) {
+    Account account = new Account();
+    String selectSql = "SELECT * FROM " + getTableName() + " WHERE trader_id=?";
+    try {
+      account = getJdbcTemplate().queryForObject(selectSql,
+          BeanPropertyRowMapper.newInstance(getEntityClass()), traderId);
+    } catch (EmptyResultDataAccessException ex) {
+      logger.debug("Can't find trader id: " + traderId, ex);
+    }
+    return account;
+  }
 }
