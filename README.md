@@ -1,21 +1,21 @@
 # Aishwarya Parackal . Jarvis Consulting
 
-I am a new graduate, a masters in Electrical and Computer Engineering with an emphasis on electronics.  A year of hands-on experience in research, and experimental work in semiconductor fabrication - a sound background in microelectronics and VLSI technology. Also, interested and enjoys programming and experience with C, C++, Java, Python, SQL, Linux, and Verilog. Data Engineering allows exploring my interests along with analyzing data to answer some of the difficult questions or to make critical decisions which might be considered tedious and challenging. However, the fact that it can aid to change life for better excites me the most about Data Engineering. I am a highly motivated, productive and focused team player with a strong communication, interpersonal, organizational, analytical and problem-solving skills: a good listener, hard worker, and avid learner. Moreover, I like to enjoy music, Bharatnatyam, badminton and table-tennis as hobbies.
+I am a new graduate with a masters in Electrical and Computer Engineering. My previous experience was as a research assistant at the University of Toronto. I am passionate about learning new technologies and enjoys programming in C, C++, Java, Python, SQL, Linux, and Verilog. Software Engineering allows exploring my interests along with analyzing data to answer some of the difficult questions or to make critical decisions which might be considered tedious and challenging. However, the fact that it can aid to change life for better excites me the most about Software Engineering. I am a highly motivated, productive and focused team player with a strong communication, interpersonal, organizational, analytical and problem-solving skills: a good listener, hard worker, and avid learner. Moreover, I like to enjoy music, Bharatnatyam, badminton and table-tennis as hobbies.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Debugging, IDE tool, Maven, Spring framework
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Debugging, IntelliJ, Maven, Spring framework
 
-**Competent:**  JUnit, Mockito, docker, DAO and Repository design pattern, REST API
+**Competent:**  JUnit, Mockito, docker, REST API
 
-**Familiar:** Python, C++, Microsoft Office, Verilog, PCB Debugging, FPGA
+**Familiar:** Python, C++, Verilog, PCB Debugging, FPGA
 
 ## Development Projects
 
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya](https://github.com/jarviscanada/jarvis_data_eng_aishwarya)
 
 - **[Cluster Monitor](./linux_sql)**: Implemented a Cluster Monitor Agent that allows users to monitors nodes connected in a Linux cluster by tracking and recording resources usage in realtime to an RDBMS Database. Coded using a bash script and SQL, docker usage for PostgreSQL execution, holding a database with recorded data, crontab set up to record usage data every minute.
-- **[Core Java Apps](./core_java)**: Implemented Java-based apps and managed using maven - Grep app that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs. JDBC app that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern. The Twitter app allows to post, show and delete tweets. Implemented using spring framework for class dependencies management, twitter REST API, Http client libraries, JSON serialization/deserialization and tested with JUnit and Mockito.
+- **[Core Java Apps](./core_java)**: Implemented Java-based apps and managed using maven -  The Twitter app allows to post, show and delete tweets. Implemented using spring framework for class dependencies management, twitter REST API, Http client libraries, JSON serialization/deserialization and tested with JUnit and Mockito. JDBC app that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern. Grep app that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs.
 - **[SpringBoot App](./springboot)**: In-progress
 - **[Cloud & DevOps](./cloud_devops)**: Not started
 - **[Hadoop](./hadoop)**: Not started
@@ -23,7 +23,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya]
 
 ## Professional Experiences
 
-**Data Engineer,  Jarvis, Toronto (2020-Present):** Worked as a junior developer and collaborated in a team to develop a product application. Implemented java based applications, worked on RDBMS, java I/O libraries, Http Client libraries, spring framework. Experience in working with IDE (Intellij), debugging, Javadoc, testing (using JUnit and Mockito). 
+**Data Engineer,  Jarvis, Toronto (2020-Present):** Working as a junior developer, and have implemented java based applications, worked on RDBMS, java I/O libraries, Http Client libraries, spring framework. Experience in working with IDE (IntelliJ), debugging, Javadoc, testing (using JUnit and Mockito). Experiences with Agile practices such as team collaboration through daily scrum notes and scrum stand-ups among the team members. Planning for the next sprint is carried out during a Sprint retro and planning meeting with team members and scrum master. Also, regular code review for feature, develop, release and master development branches is done by the senior developer.
 
 ## Education & Academic Projects
 
