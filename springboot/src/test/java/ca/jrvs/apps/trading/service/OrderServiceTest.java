@@ -84,7 +84,6 @@ public class OrderServiceTest {
     verify(securityOrderDao).save(captorSecurityOrder.capture());
     assertEquals("FILLED", captorSecurityOrder.getValue().getStatus());
 
-
     marketOrderDto.setAccountId(1);
     marketOrderDto.setSize(-100);
     marketOrderDto.setTicker("AAPL");
