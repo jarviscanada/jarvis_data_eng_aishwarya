@@ -37,7 +37,7 @@ public class PositionDao {
   public List<Position> getPositions(Integer id) {
     String selectSql =
         "SELECT account_id, ticker, sum(size) AS position FROM " + TABLE_NAME
-            + " WHERE account_id=? GROUP BY " + GROUP;
+            + " WHERE account_id=? AND status='FILLED' GROUP BY " + GROUP;
     ;
     List<Position> positions = jdbcTemplate.query(selectSql,
         BeanPropertyRowMapper.newInstance(Position.class), id);

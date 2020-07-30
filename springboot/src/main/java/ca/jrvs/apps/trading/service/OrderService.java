@@ -111,15 +111,15 @@ public class OrderService {
       Account account) {
     List<Position> positionList = positionDao.getPositions(account.getId());
     for (Position position : positionList) {
-      if (position.getTicker() == marketOrderDto.getTicker() && position.getPosition() >= Math
-          .abs(marketOrderDto
-              .getSize())) {
-        ;
-        securityOrder.setStatus("FILLED");
-        securityOrder.setNotes("Successful");
-      } else {
-        securityOrder.setStatus("CANCELLED");
-        securityOrder.setNotes("Insufficient positions");
+      if (position.getTicker().equals(marketOrderDto.getTicker())) {
+        if (position.getPosition() >= Math.abs(marketOrderDto.getSize())) {
+          ;
+          securityOrder.setStatus("FILLED");
+          securityOrder.setNotes("Successful");
+        } else {
+          securityOrder.setStatus("CANCELLED");
+          securityOrder.setNotes("Insufficient positions");
+        }
       }
     }
     securityOrderDao.save(securityOrder);
