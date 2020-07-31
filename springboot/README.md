@@ -4,7 +4,7 @@ Table of contents
 * [Architecture](#Architecture)
 * [REST API Usage](#REST API Usage)
 * [Docker Deployment](#Docker Deployment)
-* [Improvements](#Improvements)
+* [Improvements](#Improvements) 
 
 # Introduction
 The Springboot Project is an online stock trading application using REST API. It can manage quotes,  create or delete traders, manage traders accounts, execute market orders and also provide portfolios and trader profiles. Front-end developer, mobile developer, and traders can utilize this REST API.
@@ -96,7 +96,7 @@ Swagger UI allows anyone ? be it your development team or your end consumers ? t
   - PUT `/trader/withdraw/*`: withdraws fund from the given traderId.
   - DELETE `/trader/traderId/{traderId}`: it deletes a trader by providing traderId. Before deleting the trader, all positions are closed, and all funds are withdrawn.
   
-##Order Controller
+## Order Controller
 - It manages the execution of market order which deals with buying and selling shares.
   - POST `order/marketOrder`: Basically, purchase or sell shares by providing with ticker, accountId and size to place security order.
 
