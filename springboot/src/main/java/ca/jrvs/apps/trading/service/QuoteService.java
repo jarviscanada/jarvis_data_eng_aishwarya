@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
+import jdk.nashorn.internal.runtime.QuotedStringTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,16 +43,15 @@ public class QuoteService {
   }
 
   /**
-   * Update quote table against IEX source.
-   * - get all quotes from the database
-   * - foreach ticker get iexQuote
-   * - convert iexQuote to quote entity
-   * - persist quote to database
+   * Update quote table against IEX source. - get all quotes from the database - foreach ticker get
+   * iexQuote - convert iexQuote to quote entity - persist quote to database
    *
+   * @return saved quotes
    * @throws org.springframework.dao.DataAccessException if unable to retrieve data
-   * @throws IllegalArgumentException for invalid input or ticker is not found from IEX
+   * @throws IllegalArgumentException                    for invalid input or ticker is not found
+   *                                                     from IEX
    */
-  public void updateMarketData() {
+  public List<QuoteData> updateMarketData() {
     //Getting all quotes from the database
     List<QuoteData> quotes = quoteDao.findAll();
 
@@ -65,6 +65,8 @@ public class QuoteService {
 
     //persist quote to database
     quoteDao.saveAll(quoteFromIex);
+
+    return quoteFromIex;
 
   }
 
@@ -81,5 +83,50 @@ public class QuoteService {
     quote.setBidPrice(Optional.of(iexQuote.getQuote().getIexBidPrice()).orElse(0.0));
     quote.setBidSize(Optional.of(iexQuote.getQuote().getIexBidSize()).orElse(0));
     return quote;
+  }
+
+  /**
+   * Validate (again IEX) and save given tickers to quote table. - Get iexQuote(s) - convert each
+   * iexQuote to Quote entity - persist the quote to database
+   *
+   * @param tickers a list of tickers/symbols
+   * @throws IllegalArgumentException if ticker is not found from IEX
+   */
+  public List<QuoteData> saveQuotes(List<String> tickers) {
+    List<IexQuote> iexQuotes = tickers.stream().map(ticker -> findIexQuoteByTicker(ticker))
+        .collect(Collectors.toList());
+    List<QuoteData> quoteFromIex = iexQuotes.stream().map(QuoteService::buildQuoteFromTexQuote)
+        .collect(Collectors.toList());
+    List<QuoteData> savedQuotes = quoteFromIex.stream().map(quote -> saveQuote(quote)).collect(
+        Collectors.toList());
+    return savedQuotes;
+  }
+
+  /**
+   * Helper method
+   */
+  public QuoteData saveQuote(String ticker) {
+    IexQuote iexQuote = findIexQuoteByTicker(ticker);
+    QuoteData newQuote = buildQuoteFromTexQuote(iexQuote);
+    QuoteData createdQuote = saveQuote(newQuote);
+    return createdQuote;
+  }
+
+  /**
+   * Update a given quote to quote table without validation.
+   *
+   * @param quote entity
+   */
+  public QuoteData saveQuote(QuoteData quote) {
+    return quoteDao.save(quote);
+  }
+
+  /**
+   * Find all quotes fro the quote table.
+   *
+   * @return a list of quotes
+   */
+  public List<QuoteData> findAllQuotes() {
+    return quoteDao.findAll();
   }
 }

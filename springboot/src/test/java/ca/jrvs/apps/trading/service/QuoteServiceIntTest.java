@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,10 @@ public class QuoteServiceIntTest {
   @Autowired
   private QuoteDao quoteDao;
 
-//  @Before
-//  public void setup() {
-//    quoteDao.deleteAll();
-//  }
+  @Before
+  public void setup() {
+    quoteDao.deleteAll();
+  }
 
   @Test
   public void findIexQuoteByTicker() {
@@ -51,33 +52,11 @@ public class QuoteServiceIntTest {
   }
 
   @Test
-  public void updateMarketData() {
-    quoteService.updateMarketData();
-    System.out.println("MarketData updated");
-  }
-
-  @Test
   public void saveQuotes() {
-    QuoteData quote1 = new QuoteData();
-    quote1.setTicker("AAPL");
-    quote1.setBidPrice(10.0);
-    quote1.setBidSize(100);
-    quote1.setAskPrice(10.5);
-    quote1.setAskSize(100);
-    quote1.setLastPrice(10.4);
-    QuoteData quote2 = new QuoteData();
-    quote2.setTicker("FB");
-    quote2.setBidPrice(25.0);
-    quote2.setBidSize(25);
-    quote2.setAskPrice(25.5);
-    quote2.setAskSize(25);
-    quote2.setLastPrice(25.4);
-    List<QuoteData> quoteData = new ArrayList<>();
-    quoteData.add(quote1);
-    quoteData.add(quote2);
-    List<QuoteData> quotes = quoteDao.saveAll(quoteData);
-    assertEquals(2, quotes.size());
-    assertEquals("AAPL", quotes.get(0).getTicker());
+    List<String> tickers = Arrays.asList(new String[]{"FB", "AMD"});
+    List<QuoteData> quoteData = quoteService.saveQuotes(tickers);
+    assertEquals(2, quoteData.size());
+    assertEquals("FB", quoteData.get(0).getTicker());
   }
 
   @Test
@@ -89,22 +68,22 @@ public class QuoteServiceIntTest {
     quote.setAskPrice(15.5);
     quote.setAskSize(15);
     quote.setLastPrice(15.4);
-    QuoteData quote1 = new QuoteData();
-    quote1.setTicker("FB");
-    quote1.setBidPrice(10.0);
-    quote1.setBidSize(10);
-    quote1.setAskPrice(10.5);
-    quote1.setAskSize(10);
-    quote1.setLastPrice(10.4);
-    QuoteData quoteData = quoteDao.save(quote);
-    QuoteData quoteData1 = quoteDao.save(quote1);
+    QuoteData quoteData = quoteService.saveQuote(quote);
+    QuoteData quoteCreate = quoteService.saveQuote("FB");
     assertEquals("AAPL", quoteData.getTicker());
   }
 
   @Test
   public void findAllQuotes() {
     List<QuoteData> quoteDataList = quoteDao.findAll();
-    assertEquals(2, quoteDataList.size());
-    assertEquals("AAPL", quoteDataList.get(0).getTicker());
+    assertEquals(0, quoteDataList.size());
+    //assertEquals("FB", quoteDataList.get(0).getTicker());
+  }
+
+  @Test
+  public void updateMarketData() {
+    List<QuoteData> quoteDataList = quoteService.updateMarketData();
+    System.out.println("MarketData updated");
+    assertEquals(0, quoteDataList.size());
   }
 }
