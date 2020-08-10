@@ -1,9 +1,9 @@
 Table of contents
 * [Introduction](#Introduction)
-* [Quick Start](#Quick Start)
+* [Quick Start](#Quick-Start)
 * [Architecture](#Architecture)
-* [REST API Usage](#REST API Usage)
-* [Docker Deployment](#Docker Deployment)
+* [REST API Usage](#REST-API-Usage)
+* [Docker Deployment](#Docker-Deployment)
 * [Improvements](#Improvements) 
 
 # Introduction
@@ -79,7 +79,7 @@ It is a MicroService which is implemented with SpringBoot. PSQL database is used
 # REST API Usage
 ## Swagger
 Swagger is a powerful yet easy-to-use suite of API developer tools for teams and individuals, enabling development across the entire API lifecycle, from design and documentation, to test and deployment. Swagger consists of a mix of open-source, free and commercially available tools that allow anyone, from technical engineers to street smart product managers to build amazing APIs that everyone loves.
-Swagger UI allows anyone ? be it your development team or your end consumers ? to visualize and interact with the API's resources without having any of the implementation logic in place. It's automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client-side consumption.
+Swagger UI allows anyone be it your development team or your end consumers to visualize and interact with the API's resources without having any of the implementation logic in place. It's automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client-side consumption.
 
 ## Quote Controller
 - Manages CRUD operations on the quotes. The market data is acquired from the IEX cloud as JSON, and then it is mapped to `IexQuote` object which is then used to retrieve `quote` field data to be stored in `quote` table present in PSQL database.
