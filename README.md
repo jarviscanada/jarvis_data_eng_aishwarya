@@ -4,9 +4,9 @@ I am a new graduate with a masters in Electrical and Computer Engineering. My pr
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Debugging, IntelliJ, Maven, Spring framework
+**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, Debugging, IntelliJ, Maven, Spring framework, Spring
 
-**Competent:**  JUnit, Mockito, docker, REST API
+**Competent:**  JUnit, Mockito, docker, REST API, jdbcTemplate, Datasource
 
 **Familiar:** Python, C++, Verilog, PCB Debugging, FPGA
 
@@ -16,9 +16,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya]
 
 - **[Cluster Monitor](./linux_sql)**: Implemented a Cluster Monitor Agent that allows users to monitors nodes connected in a Linux cluster by tracking and recording resources usage in realtime to an RDBMS Database. Coded using a bash script and SQL, docker usage for PostgreSQL execution, holding a database with recorded data, crontab set up to record usage data every minute.
 - **[Core Java Apps](./core_java)**: Implemented Java-based apps and managed using maven -  The Twitter app allows to post, show and delete tweets. Implemented using spring framework for class dependencies management, twitter REST API, Http client libraries, JSON serialization/deserialization and tested with JUnit and Mockito. JDBC app that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern. Grep app that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs.
-- **[SpringBoot App](./springboot)**: In-progress
+- **[SpringBoot App](./springboot)**: An online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. The application implemented using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito.
 - **[Cloud & DevOps](./cloud_devops)**: Not started
-- **[Hadoop](./hadoop)**: Not started
+- **[Hadoop](./hadoop)**: In-progress
 - **[Spark/Scala](./spark)**:  Not started
 
 ## Professional Experiences
