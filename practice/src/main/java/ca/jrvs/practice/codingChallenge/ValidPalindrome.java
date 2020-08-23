@@ -9,14 +9,13 @@ public class ValidPalindrome {
    * Big-O: O(n) Justification: For loop is used.
    */
   public boolean isPalindrome(String s) {
-    char[] alphanumeric = s.replaceAll("\\W", "").toLowerCase().toCharArray();
-    int len = alphanumeric.length;
-    for (int i = 0; i < alphanumeric.length / 2; i++) {
-      if (alphanumeric[i] == alphanumeric[len - 1]) {
-        len--;
-      } else {
+    String alphanumeric = s.toLowerCase().replaceAll("\\W", "");
+    int len = alphanumeric.length() - 1;
+    for (int i = 0; i <= len; i++) {
+      if (alphanumeric.charAt(i) != alphanumeric.charAt(len)) {
         return false;
       }
+      len--;
     }
     return true;
   }

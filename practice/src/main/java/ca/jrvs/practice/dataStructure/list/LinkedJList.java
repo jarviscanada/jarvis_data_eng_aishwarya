@@ -1,6 +1,6 @@
 package ca.jrvs.practice.dataStructure.list;
 
-public class LinkedJList<E> implements JList<E>{
+public class LinkedJList<E> implements JList<E> {
 
   int size = 0;
   //Pointer to First Node
@@ -8,7 +8,24 @@ public class LinkedJList<E> implements JList<E>{
   //Pointer to last Node
   Node<E> last;
 
+  /**
+   * ticket: https://www.notion.so/Duplicate-LinkedList-Node-59d69135f2ee4ae183eee4ade9eb178b Big-O:
+   * Big-O: O(n^2) Justification: Two for loops.
+   */
+  public void removeduplicate() {
+    for (int i = 0; i < size; i++) {
+      for (int j = i + 1; j < size; ) {
+        if (this.get(i) == this.get(j)) {
+          this.remove(j);
+        } else {
+          j++;
+        }
+      }
+    }
+  }
+
   private static class Node<E> {
+
     E data;
     Node<E> nextNode;
     Node<E> prevNode;
@@ -20,11 +37,12 @@ public class LinkedJList<E> implements JList<E>{
       this.prevNode = prevNode;
     }
   }
+
   /**
    * Appends the specified element to the end of this list (optional operation).
    *
    * @param e element to be appended to this list
-   * @return <tt>true</tt> (as specified by {@link Collection#add})
+   * @return <tt>true</tt> (as specified by {@link //Collection#add})
    * @throws NullPointerException if the specified element is null and this list does not permit
    *                              null elements
    */
@@ -35,18 +53,16 @@ public class LinkedJList<E> implements JList<E>{
           "Null value");
     }
     Node prev = last;
-    Node<E> newNode = new Node<>(e,null,prev);
+    Node<E> newNode = new Node<>(e, null, prev);
     //last = newNode;
-    if(prev == null){
-      first=last=newNode;
-    }
-    else if(first.nextNode==null){
-      last=newNode;
-      first.nextNode=newNode;
-    }
-    else {
-      last.nextNode=newNode;
-      last=newNode;
+    if (prev == null) {
+      first = last = newNode;
+    } else if (first.nextNode == null) {
+      last = newNode;
+      first.nextNode = newNode;
+    } else {
+      last.nextNode = newNode;
+      last = newNode;
     }
     size++;
     return true;
@@ -64,9 +80,9 @@ public class LinkedJList<E> implements JList<E>{
   @Override
   public Object[] toArray() {
     Object[] result = new Object[size];
-    int i=0;
-    for(Node x = first;x!=null;x=x.nextNode){
-      result[i++]=x.data;
+    int i = 0;
+    for (Node x = first; x != null; x = x.nextNode) {
+      result[i++] = x.data;
     }
     return result;
   }
@@ -86,7 +102,7 @@ public class LinkedJList<E> implements JList<E>{
    */
   @Override
   public boolean isEmpty() {
-    return (size==0);
+    return (size == 0);
   }
 
   /**
@@ -101,8 +117,8 @@ public class LinkedJList<E> implements JList<E>{
   @Override
   public int indexOf(Object o) {
     int i = 0;
-    for (Node<E> x = first;x!=null;x=x.nextNode){
-      if(x.data.equals(o)){
+    for (Node<E> x = first; x != null; x = x.nextNode) {
+      if (x.data.equals(o)) {
         return i;
       }
       i++;
@@ -125,8 +141,8 @@ public class LinkedJList<E> implements JList<E>{
     if (o == null) {
       throw new NullPointerException("Null Object");
     }
-    for (Node<E> x = first;x!=null;x=x.nextNode){
-      if(x.data.equals(o)){
+    for (Node<E> x = first; x != null; x = x.nextNode) {
+      if (x.data.equals(o)) {
         return true;
       }
     }
@@ -143,12 +159,12 @@ public class LinkedJList<E> implements JList<E>{
    */
   @Override
   public E get(int index) {
-    if (!(index>=0 && index<size)) {
+    if (!(index >= 0 && index < size)) {
       throw new IndexOutOfBoundsException("invalid index");
     }
     Node<E> x = first;
-    for (int i = 0; i<index;i++){
-      x=x.nextNode;
+    for (int i = 0; i < index; i++) {
+      x = x.nextNode;
     }
     return x.data;
   }
@@ -163,26 +179,24 @@ public class LinkedJList<E> implements JList<E>{
    */
   @Override
   public E remove(int index) {
-    if (!(index>=0 && index<size)) {
+    if (!(index >= 0 && index < size)) {
       throw new IndexOutOfBoundsException("invalid index");
     }
     Node<E> x = first;
-    for (int i = 0; i<index;i++){
-        x=x.nextNode;
-      }
+    for (int i = 0; i < index; i++) {
+      x = x.nextNode;
+    }
     Node<E> removed = x;
-    if(index==0){
+    if (index == 0) {
       first = x.nextNode;
-      first.prevNode=null;
-    }
-    else if (index==size-1){
-      x.prevNode.nextNode=x.nextNode;
+      first.prevNode = null;
+    } else if (index == size - 1) {
+      x.prevNode.nextNode = x.nextNode;
       last = x.prevNode;
+    } else {
+      x.prevNode.nextNode = x.nextNode;
     }
-    else{
-      x.prevNode.nextNode=x.nextNode;
-    }
-    x=null;
+    x = null;
     size--;
     return removed.data;
   }
@@ -193,12 +207,12 @@ public class LinkedJList<E> implements JList<E>{
    */
   @Override
   public void clear() {
-    for(Node<E> x = first;x!=null;){
+    for (Node<E> x = first; x != null; ) {
       Node<E> node = x.nextNode;
-      x.data=null;
-      x.nextNode=null;
-      x.prevNode=null;
-      x=node;
+      x.data = null;
+      x.nextNode = null;
+      x.prevNode = null;
+      x = node;
     }
     first = last = null;
     size = 0;
