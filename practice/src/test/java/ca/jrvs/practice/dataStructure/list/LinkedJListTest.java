@@ -102,9 +102,23 @@ public class LinkedJListTest {
       this.list.add(String.valueOf(i));
     }
     System.out.println(list.size());
-    assertNotNull("It is Null",list.isEmpty());
+    assertNotNull("It is Null", list.isEmpty());
     list.clear();
     System.out.println(list.size());
-    assertTrue("Not empty",list.isEmpty());
+    assertTrue("Not empty", list.isEmpty());
+  }
+
+  @Test
+  public void removeDuplicateNodes() {
+    LinkedJList<Integer> list = new LinkedJList<>();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    list.add(2);
+    list.add(4);
+    list.add(3);
+    System.out.println("LinkedList: " + Arrays.toString(list.toArray()));
+    list.removeduplicate();
+    System.out.println("updated LinkedList:" + Arrays.toString(list.toArray()));
   }
 }
