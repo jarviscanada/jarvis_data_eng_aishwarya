@@ -1,0 +1,140 @@
+{
+  "education": [
+    {
+      "awards_achievements": [
+        "GPA: 9.83/10.0"
+      ],
+      "degree": "Bachelor of Engineering",
+      "department": "Electronics Engineering",
+      "duration": "2013-2017",
+      "school_name": "Mumbai University"
+    },
+    {
+      "awards_achievements": [
+        "GPA: 3.86/4.0"
+      ],
+      "degree": "Master of Engineering",
+      "department": "Electrical and Computer Engineering",
+      "duration": "2017-2019",
+      "school_name": "University of Toronto"
+    }
+  ],
+  "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_aishwarya",
+  "highlighted_projects": [
+    {
+      "description": "Worked on GaN Technology. Involved in research experiments and analysis of data to implement an optimized process flow. Documented using XperiDesk tool that supported collaboration with the team and other researchers in the world.",
+      "git_url": null,
+      "name": "Design and Fabrication of GaN Transistor"
+    },
+    {
+      "description": "Worked on VLSI technology to design and implement a chip that could aid in lane detection. Its design involved MATLAB coding, Verilog implementation and layout planning. Experience in problem-solving, team collaboration, presentation and time-management.",
+      "git_url": null,
+      "name": "Lane-detection"
+    },
+    {
+      "description": "Designed and implemented 3D-Printer using compact disk drives, 3D pen, and a microcontroller that controls its movements. Implemented g-code and c language for mechanical movements and switching control.",
+      "git_url": null,
+      "name": "3-D Printer"
+    }
+  ],
+  "jarvis_projects": [
+    {
+      "description": "Implemented a Cluster Monitor Agent that allows users to monitors nodes connected in a Linux cluster by tracking and recording resources usage (CPU and Memory usages) in realtime to an RDBMS Database. Coded using a bash script and SQL, Docker utilized for PostgreSQL execution and holding a database with recorded data that is updated every minute using crontab.",
+      "git_url": "/linux_sql",
+      "name": "Cluster Monitor"
+    },
+    {
+      "description": [
+        "Twitter App: Designed Twitter App that allows to post, show and delete tweets. Implemented using MVC design pattern and spring framework. Coded using twitter API, Http Client libraries and JSON serialization/deserialization. Tested with JUnit and Mockito..",
+        "JDBC App: Developed JDBC App that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern.",
+        "Grep App: Programmed Grep App that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs."
+      ],
+      "git_url": "/core_java",
+      "name": "Core Java Apps"
+    },
+    {
+      "description": "Implemented an online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. Coded using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito.",
+      "git_url": "/springboot",
+      "name": "Springboot App"
+    },
+    {
+      "description": "In-progress",
+      "git_url": "/hadoop",
+      "name": "Hadoop"
+    },
+    {
+      "description": "Not started",
+      "git_url": "/spark",
+      "name": "Spark"
+    },
+    {
+      "description": "Not started",
+      "git_url": "/cloud_devops",
+      "name": "Cloud/DevOps"
+    }
+  ],
+  "name": "Aishwarya Parackal",
+  "others": [
+    {
+      "bullets": [
+        "5th National Level Conference on Advancement in Engineering and Science, 2017,"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Award of excellence for securing distinction, Mumbai University examination, from Vidyalankar Dnyanapeeth Trust. August 2014."
+      ],
+      "title": "Awards"
+    },
+    {
+      "bullets": [
+        "Badminton player",
+        "Bharatanatyam dancer",
+        "President, Electronics Engineering Student Association (2015-16): Departmental event organization",
+        "Volunteer, National Level Conference (2016): National Event Organization"
+      ],
+      "title": "Activities/Hobbies"
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "Jarvis",
+      "description": "Experienced in programming using java, SQL and Linux and working with Git, IDE (IntelliJ), maven, debugging, Javadoc, testing (using JUnit and Mockito). Worked on RDBMS, Lamdba and stream APIs, java I/O libraries, Http Client libraries, spring framework, REST APIs, MVC and DAO design pattern, Microservice architecture, JDBC template and docker. Active Involvement in Agile practices such as team collaboration through daily scrum notes and scrum stand-ups among the team members and in Sprint Planning and retrospective with scrum master. Besides, regular code review for feature, develop, release and master development branches with the senior developer.",
+      "duration": "2020-present",
+      "title": "Software Developer"
+    },
+    {
+      "company": "University of Toronto",
+      "description": "Worked with a research team on GaN Technology, involved in experiments and analysis of data for device modelling and process optimization. Documentation using XperiDesk tool that supported collaboration with the team and other researchers in the world. Experienced in collaborating with an industrial company, leading the project and project management.",
+      "duration": "2018-2019",
+      "title": "Research Assistant"
+    }
+  ],
+  "skills": {
+    "competent": [
+      "JUnit/Mockito",
+      "Docker",
+      "Spring framework/Spring",
+      "REST API",
+      "Debugging"
+    ],
+    "familiar": [
+      "C++",
+      "Python",
+      "Verilog",
+      "FPGA",
+      "PCB Debugging"
+    ],
+    "proficient": [
+      "Java",
+      "Linux/Bash",
+      "RDBMS/SQL",
+      "Agile/Scrum",
+      "Git",
+      "IntelliJ",
+      "Maven"
+    ]
+  },
+  "summary": "I am a new graduate with a masters in Electrical and Computer Engineering. My previous experience was as a research assistant at the University of Toronto. I am passionate about programming and learning new technologies. Software Engineering allows exploring my interests along with analyzing data to answer some of the difficult questions or to make critical decisions which might be considered tedious and challenging. However, the fact that it can aid to change life for better excites me the most about Software Engineering."
+}
