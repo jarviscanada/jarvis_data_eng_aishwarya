@@ -58,7 +58,7 @@
       "name": "Springboot App"
     },
     {
-      "description": "In-progress",
+      "description": "Implementation for processing Big Data using big data platforms - Apache Hadoop. Provisioned a Hadoop Cluster using GCP and evaluated core Hadoop components such as MapReduce, HDFC and YARN and solved a business problem using Apache Hive and Zeppelin Notebook. In Hive Project, dealt with parsing issues, Hive partitions, Columnar File Optimization, executed queries for Highest GDP Growth and sorting operations.",
       "git_url": "/hadoop",
       "name": "Hadoop"
     },
@@ -68,7 +68,7 @@
       "name": "Spark"
     },
     {
-      "description": "Not started",
+      "description": "In-progress",
       "git_url": "/cloud_devops",
       "name": "Cloud/DevOps"
     }
@@ -117,7 +117,9 @@
       "Docker",
       "Spring framework/Spring",
       "REST API",
-      "Debugging"
+      "Debugging",
+      "Apache Hadoop",
+      "Apache Hive"
     ],
     "familiar": [
       "C++",
