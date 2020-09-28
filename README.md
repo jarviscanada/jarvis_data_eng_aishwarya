@@ -6,7 +6,7 @@ I am a new graduate with a masters in Electrical and Computer Engineering. My pr
 
 **Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git, IntelliJ, Maven
 
-**Competent:** JUnit/Mockito, Docker, Spring framework/Spring, REST API, Debugging
+**Competent:** JUnit/Mockito, Docker, Spring framework/Spring, REST API, Debugging, Apache Hadoop, Apache Hive
 
 **Familiar:** C++, Python, Verilog, FPGA, PCB Debugging
 
@@ -25,11 +25,11 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya]
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/springboot)]: Implemented an online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. Coded using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito.
 
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/hadoop)]: In-progress
+**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/hadoop)]: Implementation for processing Big Data using big data platforms - Apache Hadoop. Provisioned a Hadoop Cluster using GCP and evaluated core Hadoop components such as MapReduce, HDFC and YARN and solved a business problem using Apache Hive and Zeppelin Notebook. In Hive Project, dealt with parsing issues, Hive partitions, Columnar File Optimization, executed queries for Highest GDP Growth and sorting operations.
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/spark)]: Not started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: Not started
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: In-progress
 
 
 ## Highlighted Projects
