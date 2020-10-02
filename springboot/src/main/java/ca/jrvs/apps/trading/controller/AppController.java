@@ -15,6 +15,6 @@ public class AppController {
   @ResponseBody
   @GetMapping(path = "/health")
   public String health() {
-    return "I'm very healthy";
+    return "I'm very healthy!";
   }
 }
