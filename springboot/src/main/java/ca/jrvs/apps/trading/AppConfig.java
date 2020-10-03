@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 
 @Configuration
 public class AppConfig {
@@ -25,11 +26,29 @@ public class AppConfig {
 
   @Bean
   public DataSource dataSource() {
-    String url = System.getenv("PSQL_URL");
-    String user = System.getenv("PSQL_USER");
-    String password = System.getenv("PSQL_PASSWORD");
+    String jdbcUrl;
+    String user;
+    String password;
+
+    if (!StringUtils.isEmpty(System.getenv("RDS_HOSTNAME"))) {
+      //set up variables
+      jdbcUrl =
+          "jdbc:postgresql://" + System.getenv("RDS_HOSTNAME") + ":" + System.getenv("RDS_PORT")
+              + "/"
+              + "jrvstrading";
+      user = System.getenv("RDS_USERNAME");
+      password = System.getenv("RDS_PASSWORD");
+
+    } else {
+      jdbcUrl = System.getenv("PSQL_URL");
+      user = System.getenv("PSQL_USER");
+      password = System.getenv("PSQL_PASSWORD");
+    }
+
+    logger.debug("JDBC:" + jdbcUrl);
+
     BasicDataSource basicDataSource = new BasicDataSource();
-    basicDataSource.setUrl(url);
+    basicDataSource.setUrl(jdbcUrl);
     basicDataSource.setUsername(user);
     basicDataSource.setPassword(password);
     return basicDataSource;
