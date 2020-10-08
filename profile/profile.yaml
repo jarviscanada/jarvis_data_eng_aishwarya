@@ -60,7 +60,7 @@ jarvis_projects:
     description: "Not started"
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
-    description: "In-progress"
+    description: "Implemented AWS cloud services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk."
 
 # List of personal or academic projects
 # Feel free to add more projects

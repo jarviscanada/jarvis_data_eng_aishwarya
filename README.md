@@ -29,7 +29,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya]
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/spark)]: Not started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: In-progress
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: Implemented AWS cloud services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk.
 
 
 ## Highlighted Projects
