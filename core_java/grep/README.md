@@ -24,6 +24,6 @@ writeToFile(matchedLines)
 The grep app cannot be used for processing huge files, because `readLines` method declared under interface has `List<Strings>` as return type and have used `List<String>` for storing `matchedLines`.  `List<Strings>` stores data in RAM and when files are enormous, it can raise out of Memory issues. For instance, if we have many read lines from a file, then we can get out of memory issues/errors. 
 
 # Improvement
-1. By using Streams in place of List for storing `matchedLines` and `readLines`. This would help in reloving out of memory issues and helps in dealing with huge files.
+1. By using Streams in place of List for storing `matchedLines` and `readLines`. This would help in resolving out of memory issues and helps in dealing with huge files.
 2. For readability and usability purpose, it would be great to not only output `matchedLines` but also details like the location of the data, under which file, directory or subdirectory and perhaps line number.
 3. Currently, we are setting program arguments. We can probably take inputs from the user using `Scanner`.
