@@ -19,17 +19,17 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_aishwarya]
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/core_java)]:
       
-  - Twitter App: Designed Twitter App that allows to post, show and delete tweets. Implemented using MVC design pattern and spring framework. Coded using twitter API, Http Client libraries and JSON serialization/deserialization. Tested with JUnit and Mockito..
+  - Twitter App: Designed Twitter App that allows to post, show and delete tweets. Implemented using MVC design pattern and spring framework. Coded using Twitter API, Http Client libraries and JSON serialization/deserialization. Tested with JUnit and Mockito.
   - JDBC App: Developed JDBC App that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern.
   - Grep App: Programmed Grep App that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs.
 
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/springboot)]: Implemented an online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. Coded using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito.
+**SpringBoot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/springboot)]: Implemented an online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. Coded using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito.
 
 **Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/hadoop)]: Implementation for processing Big Data using big data platforms - Apache Hadoop. Provisioned a Hadoop Cluster using GCP and evaluated core Hadoop components such as MapReduce, HDFC and YARN and solved a business problem using Apache Hive and Zeppelin Notebook. In Hive Project, dealt with parsing issues, Hive partitions, Columnar File Optimization, executed queries for Highest GDP Growth and sorting operations.
 
 **Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/spark)]: Not started
 
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: Implemented AWS cloud services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk.
+**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_aishwarya/tree/master/cloud_devops)]: Implemented AWS clouds services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk.
 
 
 ## Highlighted Projects
