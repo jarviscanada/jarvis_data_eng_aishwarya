@@ -1,6 +1,6 @@
 # Preferred name (Characters only)
 name: "Aishwarya Parackal"
-# Your github repo root URL
+# Your GitHub repo root URL
 github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_aishwarya
 
 # Introduce yourself, your academic and professional background.
@@ -40,16 +40,16 @@ skills:
 jarvis_projects:
   - name: "Cluster Monitor"
     git_url: "/linux_sql"
-    # The project description allows hiring managers to understand your project and technologies you used(e.g. programing language, libraries, algorithms, hardwards, tools, etc.).
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programing language, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Implemented a Cluster Monitor Agent that allows users to monitors nodes connected in a Linux cluster by tracking and recording resources usage (CPU and Memory usages) in realtime to an RDBMS Database. Coded using a bash script and SQL, Docker utilized for PostgreSQL execution and holding a database with recorded data that is updated every minute using crontab."
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App: Designed Twitter App that allows to post, show and delete tweets. Implemented using MVC design pattern and spring framework. Coded using twitter API, Http Client libraries and JSON serialization/deserialization. Tested with JUnit and Mockito.."
+      - "Twitter App: Designed Twitter App that allows to post, show and delete tweets. Implemented using MVC design pattern and spring framework. Coded using Twitter API, Http Client libraries and JSON serialization/deserialization. Tested with JUnit and Mockito."
       - "JDBC App: Developed JDBC App that establishes a connection between java application and RDBMS for SQL execution. Its implementation included DAO and Repository design pattern."
       - "Grep App: Programmed Grep App that searches and outputs a text pattern in a given directory recursively. Coded using regex, Java I/O, lambda and stream APIs."
-  - name: "Springboot App"
+  - name: "SpringBoot App"
     git_url: "/springboot"
     description: "Implemented an online stock trading application using REST API, capable of executing market orders, creating traders, their accounts and quotes using tickers. A microservice implementation using SpringBoot. PostgreSQL used for data storage. Coded using Datasource, jdbcTemplate, IEX cloud, docker and tested with JUnit and Mockito."
   - name: "Hadoop"
@@ -60,12 +60,12 @@ jarvis_projects:
     description: "Not started"
   - name: "Cloud/DevOps"
     git_url: "/cloud_devops"
-    description: "Implemented AWS cloud services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk."
+    description: "Implemented AWS clouds services such as load balancer, EC2, RDS, Auto-Scaling for the deployment of the trading app for facilitating scalability, elasticity, and high availability. Created DEV and PROD environments and a CI/CD pipeline using Jenkins and Elastic BeanStalk."
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
-    #project name
+  #project name
   - name: "Design and Fabrication of GaN Transistor"
     #URL is optional
     git_url:
@@ -79,8 +79,8 @@ highlighted_projects:
     description: Designed and implemented 3D-Printer using compact disk drives, 3D pen, and a microcontroller that controls its movements. Implemented g-code and c language for mechanical movements and switching control.
 
 #List of professional experience
-#The job description allows hiring managers to understand your job and technologies you used(e.g. programing language, libraries, algorithms, hardwards, tools, etc.).
-#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem solving, improvements, communication).
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programing language, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
   - title: "Software Developer"
@@ -94,7 +94,7 @@ professional_experience:
     description: "Worked with a research team on GaN Technology, involved in experiments and analysis of data for device modelling and process optimization. Documentation using XperiDesk tool that supported collaboration with the team and other researchers in the world. Experienced in collaborating with an industrial company, leading the project and project management."
 
 #List of education
-education: 
+education:
   - school_name: "Mumbai University"
     duration: "2013-2017"
     degree: "Bachelor of Engineering"
@@ -111,7 +111,7 @@ education:
 
 #Optional section
 others:
-    #category
+  #category
   - title: "Certificates"
     #list of items
     bullets:
